@@ -23,4 +23,9 @@ You can control the height of textfield, background color, corner radius, border
 
 ![alt img](http://i.imgur.com/mMCAlSf.png)
 
+## TODO:
+
+* Add more functionality
+* Add to CocoaPods
+
 
