@@ -1,6 +1,8 @@
 # SwiftyTextfields
 A subclass of UITextfield with extra functionality. @IBInspectable so you can make changes from storyboard!
 
+[![3.0](https://img.shields.io/badge/Swift%203.0--green.svg)](https://developer.apple.com/swift/)
+[![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Installation 
