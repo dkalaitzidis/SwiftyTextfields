@@ -1,33 +1,56 @@
-# SwiftyTextfields
-A subclass of UITextfield with extra functionality. @IBInspectable so you can make changes from storyboard!
+SwiftyTextfields
+===================
 
 [![3.0](https://img.shields.io/badge/Swift%203.0--green.svg)](https://developer.apple.com/swift/)
 [![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
+iOS **Swift 3.0** UITextfield class
+Create awesome textfields!
+--------------------------------------
+![enter image description here](http://i.imgur.com/qQpkLXI.png)
 
-## Installation 
-Drag 'n Drop the SwiftyTextfields.swift into your project!
+----------
+**IBInspectable** attributes accessible from the identity inspector. 
 
-## How-to Use?
-Select the UITextfield from your storyboard and change the class to SwiftyTextfields. That's it, now you have the properties availble. The changes will be visible in storyboard so you don't need to run your project all the time to see the results.
+ - Corner radius
+ - Border width
+ - Border color
+ - Left image
+ - Left image width, height, padding
+ - Shadow
+ - Shadow radius, color, opacity
+ - Textfield height
 
-### Change Class
+You can see the changes directly on the storyboard!
 
-![alt tag](http://i.imgur.com/iIWHy0h.png) 
-### Properties
+----------
 
-You can control the height of textfield, background color, corner radius, border width, border color, placeholder color. You can also have shadow, so you control also the shadow's color, radius & opacity. If you add an image on the left you can also control the width, height & left padding.
 
-![alt img](http://i.imgur.com/v4ICqCY.png)
+Installation
+-------------
 
-### Examples
-![alt img](http://i.imgur.com/sAJgcvN.png)
+> **Cocoapods:**
 
-![alt img](http://i.imgur.com/mMCAlSf.png)
+> Coming soon...
 
-## TODO:
+> **Manual:**
 
-* Add more functionality
-* Add to CocoaPods
+> - drag 'n drop SwiftyAvatar.swift into your project.
 
+----------
+
+How to use
+-------------
+
+> **Storyboard:** 
+
+> - Select the UITextfied you want to use and change the class to SwiftyTextfields.
+
+----------
+
+Contact & Contribute
+-------------
+
+ - Feel free to contact me with ideas or suggestions at kalaitzidis34@gmail.com
+ - Fork the project and make your own changes
 
