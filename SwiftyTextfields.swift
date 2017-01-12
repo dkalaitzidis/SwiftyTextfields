@@ -76,6 +76,12 @@ import UIKit
         }
     }
     
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 1, height: 1) {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
     
     @IBInspectable var leftPadding: CGFloat = 0
     @IBInspectable var textfieldHeight: CGFloat = 30
@@ -93,9 +99,9 @@ import UIKit
         layer.borderWidth = borderWidth
         
         if(enableShadow == true){
-            let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+            let shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius)
             layer.shadowColor = shadowColor.cgColor
-            layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
+            layer.shadowOffset = shadowOffset
             layer.shadowOpacity = shadowOpacity
             layer.shadowRadius = shadowRadius
             layer.masksToBounds =  false
