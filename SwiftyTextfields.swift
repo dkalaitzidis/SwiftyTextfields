@@ -76,15 +76,9 @@ import UIKit
         }
     }
     
-    @IBInspectable var shadowOffset: CGSize = CGSize(width: 1, height: 1) {
-        didSet {
-            layoutSubviews()
-        }
-    }
-    
     @IBInspectable var optionalPlaceholder: String = "" {
         didSet {
-            layoutSubviews()
+            updateView()
         }
     }
     
@@ -105,16 +99,14 @@ import UIKit
         layer.borderWidth = borderWidth
         
         if(enableShadow == true){
-            let shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius)
+            let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
             layer.shadowColor = shadowColor.cgColor
-            layer.shadowOffset = shadowOffset
+            layer.shadowOffset = CGSize(width: 0.2, height: 0.2)
             layer.shadowOpacity = shadowOpacity
             layer.shadowRadius = shadowRadius
             layer.masksToBounds =  false
             layer.shadowPath = shadowPath.cgPath
         }
-
-
     }
     
     func updateView() {
@@ -130,14 +122,20 @@ import UIKit
         }
         
         // Placeholder text color
-        attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSForegroundColorAttributeName: placeholderColor])
+        
+        let placeholderText = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSForegroundColorAttributeName: placeholderColor])
+        
+        attributedPlaceholder = placeholderText
         
         if(optionalPlaceholder.characters.count > 0){
             let optionalPlaceholderText = NSAttributedString(string: optionalPlaceholder, attributes:[NSFontAttributeName:UIFont.italicSystemFont(ofSize: 10)])
+            
             let combination = NSMutableAttributedString()
             combination.append(placeholderText)
             combination.append(optionalPlaceholderText)
+            
             attributedPlaceholder = combination
+            
         }
     }
     
@@ -157,4 +155,3 @@ import UIKit
         return bounds.insetBy(dx: leftImageWidthHeight.width + leftPadding * 2, dy: 0)
     }
 }
-
