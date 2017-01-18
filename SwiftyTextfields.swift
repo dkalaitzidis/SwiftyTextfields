@@ -82,6 +82,12 @@ import UIKit
         }
     }
     
+    @IBInspectable var optionalPlaceholder: String = "" {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
     
     @IBInspectable var leftPadding: CGFloat = 0
     @IBInspectable var textfieldHeight: CGFloat = 30
@@ -125,6 +131,14 @@ import UIKit
         
         // Placeholder text color
         attributedPlaceholder = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSForegroundColorAttributeName: placeholderColor])
+        
+        if(optionalPlaceholder.characters.count > 0){
+            let optionalPlaceholderText = NSAttributedString(string: optionalPlaceholder, attributes:[NSFontAttributeName:UIFont.italicSystemFont(ofSize: 10)])
+            let combination = NSMutableAttributedString()
+            combination.append(placeholderText)
+            combination.append(optionalPlaceholderText)
+            attributedPlaceholder = combination
+        }
     }
     
     // Padding for images
