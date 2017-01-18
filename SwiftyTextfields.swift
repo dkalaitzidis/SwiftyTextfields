@@ -12,19 +12,19 @@ import UIKit
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
@@ -42,43 +42,43 @@ import UIKit
     
     @IBInspectable var bgColor: UIColor = UIColor.white {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var placeholderColor: UIColor = UIColor.lightGray {
         didSet {
-            updateView()
+            updatePlaceholder()
         }
     }
     
     @IBInspectable var enableShadow: Bool = false {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var shadowColor: UIColor = UIColor.darkGray {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var shadowRadius: CGFloat = 1 {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var shadowOpacity: Float = 0.5 {
         didSet {
-            updateView()
+            layoutSubviews()
         }
     }
     
     @IBInspectable var optionalPlaceholder: String = "" {
         didSet {
-            updateView()
+            updatePlaceholder()
         }
     }
     
@@ -107,6 +107,7 @@ import UIKit
             layer.masksToBounds =  false
             layer.shadowPath = shadowPath.cgPath
         }
+        
     }
     
     func updateView() {
@@ -119,8 +120,10 @@ import UIKit
         } else {
             leftViewMode = UITextFieldViewMode.never
             leftView = nil
-        }
-        
+        } 
+    }
+    
+    func updatePlaceholder(){
         // Placeholder text color
         
         let placeholderText = NSAttributedString(string: placeholder != nil ?  placeholder! : "", attributes:[NSForegroundColorAttributeName: placeholderColor])
@@ -135,7 +138,6 @@ import UIKit
             combination.append(optionalPlaceholderText)
             
             attributedPlaceholder = combination
-            
         }
     }
     
